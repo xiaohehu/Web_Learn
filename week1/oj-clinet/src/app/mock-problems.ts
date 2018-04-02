@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Problem } from '../../models/problem.model'
-import { DataService } from '../../services/data.service'; 
+import { Problem } from './models/problem.model';
 
-const PROBLEMS: Problem[] = [
+export const PROBLEMS: Problem[] = [
 {
 	"id":1,
 	"name":"Two Sum",
@@ -44,26 +42,3 @@ const PROBLEMS: Problem[] = [
 	the array, find the maximum number inside the window at each moving.",
 	"difficulty":"super"
 }];
-
-@Component({
-  selector: 'app-problem-list',
-  templateUrl: './problem-list.component.html',
-  styleUrls: ['./problem-list.component.css']
-})
-export class ProblemListComponent implements OnInit {
-  // private problems list inside the component
-  problems: Problem[];
-
-  constructor(private dataService: DataService) { }
-
-  ngOnInit() {
-  	// init problems list
-  	this.getProblems();
-  }
-
-  getProblems() {
-  	// this.problems = PROBLEMS;
-  	this.problems = this.dataService.getProblems();
-  }
-
-}
