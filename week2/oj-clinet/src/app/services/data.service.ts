@@ -13,7 +13,7 @@ export class DataService {
   // BehavivorSubject: when subscribe, we can get the value that emitted last time.
   // Subject: when subscribe, we can only get the value that emitted after 
   // subscribe and we cannot get value that emitted before we subscribe
-  	private _problemSource = new BehaviorSubject<Problem[]> ([]);
+  	private _problemSource = new BehaviorSubject(<Problem[]> ([]));
 
  	constructor(private httpClient : HttpClient) { }
 
@@ -40,7 +40,10 @@ export class DataService {
  		// return this.problems.find((problem) => problem.id === id);
  		return this.httpClient.get(`api/v1/problems/${id}`)
  			.toPromise()
- 			.then((res : any) => res)
+ 			.then((res : any) => {
+ 				console.log(res)
+ 				return res;
+ 			})
  			.catch(this.handleError);
  	}
 
