@@ -20,7 +20,7 @@ router.get('/problems/:id', (req, res) => {
 	const id = req.params.id; // get problem id
 	// +id: convert string to int
 	problemService.getProblem(+id)
-		.then(problems => res.json(problem))
+		.then(problem => res.json(problem))
 });
 
 // POST problem
