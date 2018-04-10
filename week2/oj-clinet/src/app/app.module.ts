@@ -11,6 +11,7 @@ import { NewProblemComponent } from './components/new-problem/new-problem.compon
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditorComponent } from './components/editor/editor.component';
+import { CollaborationService } from './services/collaboration.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EditorComponent } from './components/editor/editor.component';
     BrowserModule
   ],
   providers: [
-  	DataService
+  	DataService,
+    CollaborationService
   ],
   bootstrap: [AppComponent]
 })
