@@ -28,4 +28,10 @@ export class CollaborationService {
         this.collaborationSocket.emit("change", delta);
 	}
 
+    restoreBuffer(): void {
+      // user emit "restoreBuffer" event
+      // let server to handle that this event
+      this.collaborationSocket.emit("restoreBuffer");
+    }
+
 }
